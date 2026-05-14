@@ -1,0 +1,23 @@
+==========Model evaluation results----------
+----------PERFORMANCE METRICS:----------
+Accuracy (%)                  : 46.7
+
+Precision (%)                 : 100.0
+
+Recall (%)                    : 46.7
+
+F1-Score                      : 0.6366734832992502
+
+Specificity (%)               : 0
+
+True Positives                : 934
+
+True Negatives                : 0
+
+False Positives               : 0
+
+False Negatives               : 1066
+
+Total Samples                 : 2000
+
+----------False Positive Samples:----------

@@ -1,0 +1,23 @@
+{
+    "Eps": 0.0001,
+    "Iter": 1,
+    "Threshold Modello Originale": 0.7,
+    "EER (%)": 31.056566075070975,
+    "min_DCF": 0.8550379764728949,
+    "Accuracy (%)": 72.3878875842303,
+    "Recall (%)": 74.49136970430445,
+    "Precision (%)": 89.04139193331422,
+    "# Correctly Missclassified ": 80137,
+    "Accuracy Misclassified (%)": 18.42399301085157,
+    "Recovery Rate (%)": 45.71457920884539,
+    "# Misclassified Recovered": 48953,
+    "Effetto Attacco (%)": 5.752592762034069,
+    "FAR (%)": 31.056519396949323,
+    "AUC": 0.7510714444999269,
+    "Total Samples": 680723,
+    "Total adv samples": 542086,
+    "True Positive": 403776,
+    "True Negative": 88985,
+    "False Positive": 49694,
+    "False Negative": 138268
+}
