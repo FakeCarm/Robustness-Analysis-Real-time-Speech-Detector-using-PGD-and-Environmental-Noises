@@ -1,0 +1,33 @@
+
+# Estrazione features codecfake
+nohup python extract_features_optimized_og.py --dataset codecfake --dataset_path ../Codecfake/upload_zenodo --output_path features --model_type full --skip_existing False> cextract2.txt &
+
+# Estrazione feature asvspoof19
+nohup python extract_features_optimized_og.py --dataset asvspoof2019 --dataset_path ../ASVspoof19/LA --output_path features --model_type full --skip_existing False> cextract.txt &
+
+# Estrazione feature asvspoof5
+nohup python extract_features_optimized_og.py --dataset asvspoof5 --dataset_path ../ASVspoof5 --output_path features --model_type full --skip_existing False> cextract3.txt &
+
+#Avvio addestramento
+nohup python main_train.py --path_to_features features/codecfake/full --path_to_features1 features/asvspoof2019/full --out_fold ../Models/cotrain_AASIST_FULL --train_task co-train --CSAM True --feat xls --use_weighted_sampler True> add.txt &
+
+# Evaluate dev-set co-dataset
+nohup python evaluate_model_co-dataset.py --model ../Models/cotrain_AASIST_FULL/anti-spoofing_feat_model.pt --dataset_asv features/asvspoof2019 --dataset_codec features/codecfake --output_dir evaluation_results_codatasets --model_type full > dev.txt &
+
+# Evaluate asvspoof5
+nohup python evaluate_model_asvspoof5.py --model ../Models/cotrain_AASIST_FULL/anti-spoofing_feat_model.pt --data features/asvspoof5 --output_dir evaluation_results --model_type full > aev.txt &
+
+# Evaluate ESC-50 probabilities
+python esc-50-aasist-eval.py --model ../Models/cotrain_AASIST_FULL/anti-spoofing_feat_model.pt --model_type full
+
+# Evaluate ESC-50
+python esc-50-evaluator.py --model full
+
+#Evaluate ambiental noise probabilities
+nohup ./ambient_noise_eval_script.bash --model ../Models/cotrain_AASIST_FULL/anti-spoofing_feat_model.pt --model_type full > ambfull.txt &
+
+# Evaluate single ambient noise probabilities 
+nohup python ambient_noise_generator_new.py ---model ../Models/cotrain_AASIST_FULL/anti-spoofing_feat_model.pt --model_type full --rumore pioggia --snr 10 > pio10.txt &
+
+# Evaluate ambient noise evaluation_results
+python ambient_noise_evaluator_AllMetrics.py --snr 15 --rumore pioggia --model_type full
