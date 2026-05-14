@@ -1,0 +1,35 @@
+==================================================
+MODEL EVALUATION RESULTS
+==================================================
+
+PERFORMANCE METRICS:
+------------------------------
+EER (%)                  : 27.890
+minDCF                   : 0.771
+AUC                      : 0.788
+EER Threshold            : 0.879
+Accuracy (%)             : 76.969
+Precision (%)            : 89.746
+Recall (%)               : 80.244
+F1-Score                 : 0.847
+Specificity (%)          : 64.166
+True Positives           : 434960.000
+True Negatives           : 88985.000
+False Positives          : 49694.000
+False Negatives          : 107084.000
+
+LATENCY METRICS:
+------------------------------
+Avg Inference Time       : 28.90 ms
+Std Inference Time       : 18.74 ms
+Avg Feature Time         : 0.00 ms
+Throughput               : 1107.3 samples/sec
+
+ Total Samples: 680723
+
+CONFUSION MATRIX:
+------------------------------
+True Negatives:  88985
+False Positives: 49694
+False Negatives: 107084
+True Positives:  434960
